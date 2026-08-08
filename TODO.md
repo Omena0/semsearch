@@ -1,0 +1,10 @@
+- [ ] Update `index.py`:
+  - [ ] Add `FileEntry` and `Database` dataclasses
+  - [ ] Implement file traversal: recurse all `INDEX_DIRS`, apply `SKIP_PATHS`, `SKIP_DIRS`, `SKIP_PATTERNS`, and `TEXT_EXTENSIONS`
+  - [ ] Implement `is_text_file` binary check
+  - [ ] Implement content hash (sha256 full file) -> `int` and dedup
+  - [ ] If `db.pickle` exists, load it and update in-place via `path_to_index`
+  - [ ] Re-embed only changed files
+  - [ ] Save updated `Database` to `db.pickle`
+- [ ] Update `search.py` to new DB format and requested scoring logic (`query = MODEL.encode`, `scores = embeddings @ query`, top-50 then top results)
+- [ ] Run `python index.py` then `python search.py` sanity check
